@@ -26,8 +26,8 @@ jobs:
           push: true
           file: ./src/Review-Filmes.Web/Dockerfile
           tags: | 
-            fabricioveronez/review-filmes:v${{ github.run_number }}
-            fabricioveronez/review-filmes:latest
+            wallafi/review-filmes:v${{ github.run_number }}
+            wallafi/review-filmes:latest
   CD:
     runs-on: ubuntu-latest
     needs: [CI]
@@ -39,7 +39,7 @@ jobs:
       run: |
         git config --global user.name "waallafi01"
         git config --global user.email "wallafisantos98@outlook.com"
-        sed -i 's/image: fabricioveronez\/review-filmes:v[0-9]\{1,3\}/image: fabricioveronez\/review-filmes:v${{github.run_number}}/' ./k8s/deployment.yaml
+        sed -i 's/image: wallafi\/review-filmes:v[0-9]\{1,3\}/image: wallafi\/review-filmes:v${{github.run_number}}/' ./k8s/deployment.yaml
         git add ./k8s
-        git commit -m "Alteração para a imagem fabricioveronez/review-filmes:v${{ github.run_number }}"
+        git commit -m "Alteração para a imagem wallafi/review-filmes:v${{ github.run_number }}"
         git push origin
