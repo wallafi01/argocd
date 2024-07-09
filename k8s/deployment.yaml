@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgre
+  namespace: app
 spec: 
   replicas: 1
   selector:
@@ -30,6 +31,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: postgre
+  namespace: app
 spec: 
   selector:
     app: postgre
@@ -41,6 +43,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: reviewfilmes
+  namespace: app
 spec: 
   replicas: 10
   selector:
@@ -66,6 +69,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: reviewfilmes
+  namespace: app
 spec: 
   selector:
     app: reviewfilmes
