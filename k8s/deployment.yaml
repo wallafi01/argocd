@@ -45,7 +45,7 @@ metadata:
   name: reviewfilmes
   namespace: app
 spec: 
-  replicas: 10
+  replicas: 1
   selector:
     matchLabels: 
       app: reviewfilmes
